@@ -8,6 +8,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import kingLearImg from '@/assets/plays/king-lear.jpg';
 import carmenImg from '@/assets/plays/carmen.jpg';
 import womenPrisonImg from '@/assets/plays/women-prison.jpg';
+import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
+import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
 
 const WorldBox: React.FC = () => {
   const { t, language } = useLanguage();
@@ -44,34 +46,34 @@ const WorldBox: React.FC = () => {
       link: '/world-box/women-prison',
     },
     {
-      id: 'play-4',
-      title: 'مسرحية ٤',
-      titleEn: 'Play 4',
+      id: 'that-red-cloak',
+      title: 'ذات والرداء الأحمر',
+      titleEn: 'That and the Red Cloak',
       description: language === 'ar'
-        ? 'عمل مسرحي كلاسيكي يستكشف أعماق النفس البشرية'
-        : 'A classic theatrical work exploring the depths of human soul',
+        ? 'حكاية معاصرة تواجه فيها البطلة ذئاب غابة السوشيال ميديا'
+        : 'A contemporary tale where the heroine faces wolves in the social media forest',
+      image: thatRedCloakImg,
+      link: '/world-box/that-red-cloak',
+    },
+    {
+      id: 'crossing-victory',
+      title: 'عبور وانتصار',
+      titleEn: 'Crossing and Victory',
+      description: language === 'ar'
+        ? 'مسرحية وطنية تجسد بطولات الجنود المصريين في حرب أكتوبر'
+        : 'A patriotic play embodying the heroism of Egyptian soldiers in October War',
+      image: crossingVictoryImg,
+      link: '/world-box/crossing-victory',
+    },
+    {
+      id: 'khaled-galal-tribute',
+      title: 'حفل تكريم المخرج خالد جلال',
+      titleEn: 'Director Khaled Galal Tribute',
+      description: language === 'ar'
+        ? 'تكريم المخرج القدير خالد جلال على مسيرته الإبداعية'
+        : 'Tribute to distinguished director Khaled Galal for his creative career',
       image: kingLearImg,
-      link: '/world-box/play-4',
-    },
-    {
-      id: 'play-5',
-      title: 'مسرحية ٥',
-      titleEn: 'Play 5',
-      description: language === 'ar'
-        ? 'دراما مؤثرة تجسد الصراع بين الخير والشر'
-        : 'A touching drama embodying the struggle between good and evil',
-      image: carmenImg,
-      link: '/world-box/play-5',
-    },
-    {
-      id: 'play-6',
-      title: 'مسرحية ٦',
-      titleEn: 'Play 6',
-      description: language === 'ar'
-        ? 'رحلة درامية في عوالم الحب والفقدان'
-        : 'A dramatic journey through the worlds of love and loss',
-      image: womenPrisonImg,
-      link: '/world-box/play-6',
+      link: '/world-box/khaled-galal-tribute',
     },
   ];
 
