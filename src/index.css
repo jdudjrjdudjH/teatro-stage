@@ -205,6 +205,20 @@
     display: none;
   }
 
+  /* Curtain Logo Fade */
+  .curtain-logo {
+    animation: curtain-logo-fade 2.5s ease-in-out 0.5s forwards;
+  }
+
+  @keyframes curtain-logo-fade {
+    0%, 50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   /* Gold Decorative Border */
   .gold-border {
     border: 2px solid hsl(var(--gold));

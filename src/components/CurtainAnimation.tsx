@@ -68,10 +68,16 @@ const CurtainAnimation: React.FC<CurtainAnimationProps> = ({ onAnimationComplete
         </div>
       </div>
 
-      {/* Center Logo */}
-      <div className="absolute inset-0 flex items-center justify-center z-[10001] pointer-events-none">
-        <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <h1 className="font-amiri text-6xl md:text-8xl text-gold text-shadow-gold mb-4">
+      {/* Center Logo - fades out with curtain */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center z-[10001] pointer-events-none transition-opacity duration-1000"
+        style={{ 
+          animationDelay: '0.3s',
+          opacity: 1,
+        }}
+      >
+        <div className="text-center animate-fade-in curtain-logo">
+          <h1 className="font-amiri text-6xl md:text-8xl text-gold text-shadow-gold mb-6">
             تياترو
           </h1>
           <p className="font-playfair text-2xl md:text-3xl text-foreground/80 tracking-widest">

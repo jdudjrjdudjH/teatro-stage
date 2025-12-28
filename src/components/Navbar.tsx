@@ -26,11 +26,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
+            <div className="flex flex-col items-center">
               <span className="font-amiri text-3xl text-gold text-shadow-gold group-hover:animate-glow-pulse transition-all">
                 تياترو
               </span>
-              <span className="absolute -bottom-1 left-0 right-0 text-[10px] font-playfair tracking-[0.3em] text-muted-foreground text-center">
+              <span className="mt-1 text-[10px] font-playfair tracking-[0.3em] text-muted-foreground">
                 TEATRO
               </span>
             </div>

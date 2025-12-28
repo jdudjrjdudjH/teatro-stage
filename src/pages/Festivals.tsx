@@ -1,12 +1,7 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
-import WatchButton from '@/components/WatchButton';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// Import images
-import kingLearImg from '@/assets/plays/king-lear.jpg';
-import carmenImg from '@/assets/plays/carmen.jpg';
 
 interface FestivalEvent {
   id: string;
@@ -14,7 +9,6 @@ interface FestivalEvent {
   titleEn: string;
   content: string;
   contentEn: string;
-  image: string;
   links: { url: string; label: string; labelEn: string }[];
 }
 
@@ -33,7 +27,6 @@ const festivalEvents: FestivalEvent[] = [
 Director Mazen Al-Gharbawi began his speech by saying: "I extend my sincere thanks to the President of the National Theater Center. The festival administration has undertaken to organize this event to celebrate the festival's ten-year anniversary, to document some of the directors of the new millennium, according to the vision of writer and critic Bassem Sadeq."
 
 The Sharm El-Sheikh International Youth Theater Festival is held under the patronage of the Egyptian Ministry of Culture headed by Professor Dr. Ahmed Fouad Hano, and the Ministry of Tourism and Antiquities headed by Minister Sherif Fathy.`,
-    image: kingLearImg,
     links: [
       { url: 'https://drive.google.com/file/d/1dnmgsDzo50D1hpANBnS1X_6PV1FrYNrT/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1CSRb0MAC-pKunn3Df6kEuhiTwCezsUNr/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
@@ -55,7 +48,6 @@ The Sharm El-Sheikh International Youth Theater Festival is held under the patro
 The selection committee, headed by Dr. Youssef Aidabi from Sudan, announced the selection of only 15 theatrical performances from various Arab countries to compete for His Highness Sheikh Dr. Sultan Muhammad Al-Qasimi Award for Best Arab Theatrical Work.
 
 "Carmen" is based on the novel by French writer Prosper Mérimée, dramaturged by Mohamed Ali Ibrahim, and deals with the life of Carmen, the rebellious gypsy girl who represents gypsy culture in the face of Spanish civic culture based on order and law.`,
-    image: carmenImg,
     links: [
       { url: 'https://drive.google.com/file/d/1KM_q-sXol19h0CuBxSb3_Ix3_PrSOsQK/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1cdpLjwFkWn7VWMehIJkPjVKtmzIGyajs/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
@@ -75,7 +67,6 @@ The selection committee, headed by Dr. Youssef Aidabi from Sudan, announced the 
 The Minister of Culture confirmed in his speech that celebrating creators represents an affirmation of the value of great Egyptian art, pointing out that honoring Khaled Jalal is an honor to an artistic and intellectual experience that enriched the conscience and contributed to strengthening the power of Egyptian art in various forums.
 
 The minister added that an extended friendship brought him together with the distinguished director Khaled Jalal over the years, during which he witnessed the extent of his giving, thought, and vision in presenting a promising generation of artists.`,
-    image: kingLearImg,
     links: [
       { url: 'https://drive.google.com/file/d/1WcjcXTvL5y86FRl2rf9oSUgT3q4OnTgC/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1_d6JHnKnvQgZJWusaZrM8s-TmqCH7FR5/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
@@ -102,7 +93,6 @@ https://forms.gle/fG9ovoXhtFVAG8Rn7
 
 Foreign Performances Participation Form:
 https://forms.gle/bdGrjaoWdNasToVu8`,
-    image: carmenImg,
     links: [
       { url: 'https://forms.gle/fG9ovoXhtFVAG8Rn7', label: 'استمارة الفرق العربية', labelEn: 'Arab Groups Form' },
       { url: 'https://forms.gle/bdGrjaoWdNasToVu8', label: 'استمارة الفرق الأجنبية', labelEn: 'Foreign Groups Form' },
@@ -126,7 +116,6 @@ The festival is one of the projects co-founded by the late lady of Arab theater,
 The festival events are held from November 25 to 30 amid wide Arab and international participation and under the patronage of the Ministries of Culture and Tourism and South Sinai Governorate.
 
 The 10th edition is packed with a huge program of 20 performances from 14 Arab and foreign countries: Egypt, Saudi Arabia, UAE, Kuwait, Qatar, Algeria, Tunisia, Jordan, Spain, Italy, Poland, South Korea, Russia, and Armenia.`,
-    image: kingLearImg,
     links: [
       { url: 'https://drive.google.com/file/d/1im4VTB1uCMKFP4tHxOQKhsAe8b1EuXDN/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1rq6AqrU3h9NhkGYyMgWFOh0UAigYzNJy/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
@@ -147,44 +136,30 @@ const Festivals: React.FC = () => {
             subtitle={t('festivals.subtitle')} 
           />
           
-          <div className="space-y-16 stagger-children">
+          <div className="space-y-12 stagger-children">
             {festivalEvents.map((event) => (
-              <article key={event.id} className="theater-card rounded-xl overflow-hidden">
-                <div className="grid md:grid-cols-3 gap-0">
-                  {/* Image */}
-                  <div className="md:col-span-1">
-                    <img
-                      src={event.image}
-                      alt={language === 'ar' ? event.title : event.titleEn}
-                      className="w-full h-64 md:h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="md:col-span-2 p-6 md:p-8">
-                    <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-4">
-                      {language === 'ar' ? event.title : event.titleEn}
-                    </h2>
-                    
-                    <p className="font-cairo text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
-                      {language === 'ar' ? event.content : event.contentEn}
-                    </p>
-                    
-                    {/* Watch Buttons */}
-                    <div className="flex flex-wrap gap-3">
-                      {event.links.map((link, index) => (
-                        <a
-                          key={index}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
-                        >
-                          {language === 'ar' ? link.label : link.labelEn}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
+              <article key={event.id} className="theater-card rounded-xl overflow-hidden p-6 md:p-8">
+                <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-4">
+                  {language === 'ar' ? event.title : event.titleEn}
+                </h2>
+                
+                <p className="font-cairo text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
+                  {language === 'ar' ? event.content : event.contentEn}
+                </p>
+                
+                {/* Watch Buttons */}
+                <div className="flex flex-wrap gap-3">
+                  {event.links.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
+                    >
+                      {language === 'ar' ? link.label : link.labelEn}
+                    </a>
+                  ))}
                 </div>
               </article>
             ))}

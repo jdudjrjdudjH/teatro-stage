@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
-import WatchButton from '@/components/WatchButton';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
@@ -9,6 +8,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import kingLearImg from '@/assets/plays/king-lear.jpg';
 import carmenImg from '@/assets/plays/carmen.jpg';
 import womenPrisonImg from '@/assets/plays/women-prison.jpg';
+import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
+import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
 
 interface PlayData {
   id: string;
@@ -48,32 +49,32 @@ const playsData: Record<string, PlayData> = {
     image: womenPrisonImg,
     videoPath: '/videos/women-prison.mp4',
   },
-  'play-4': {
-    id: 'play-4',
-    title: 'مسرحية ٤',
-    titleEn: 'Play 4',
-    description: 'عمل مسرحي كلاسيكي يستكشف أعماق النفس البشرية ويطرح تساؤلات فلسفية عميقة حول الوجود والمعنى.',
-    descriptionEn: 'A classic theatrical work exploring the depths of the human soul and raising deep philosophical questions about existence and meaning.',
+  'that-red-cloak': {
+    id: 'that-red-cloak',
+    title: 'ذات والرداء الأحمر',
+    titleEn: 'That and the Red Cloak',
+    description: 'تستدعي مسرحية «ذات... والرداء الأحمر» الحكاية الخرافية الشهيرة للفتاة الصغيرة صاحبة الرداء الأحمر، المعروفة باسم «ليلى والذئب»، الفتاة التي خاضت مغامرة في الغابة لاحقها فيها الذئب، وتنكّر بصورة جدتها. في العرض المسرحي الجديد ينقل فريق العمل الحكاية الخرافية إلى فضاء معاصر، حيث تواجه البطلة الصغيرة ذئاباً أخرى في غابة «السوشيال ميديا».',
+    descriptionEn: 'The play "That... and the Red Cloak" recalls the famous fairy tale of the little girl in the red cloak, known as "Little Red Riding Hood." In the new theatrical performance, the team transports the fairy tale to a contemporary space, where the young heroine faces other wolves in the "social media" forest.',
+    image: thatRedCloakImg,
+    videoPath: '/videos/that-red-cloak.mp4',
+  },
+  'crossing-victory': {
+    id: 'crossing-victory',
+    title: 'عبور وانتصار',
+    titleEn: 'Crossing and Victory',
+    description: 'مسرحية وطنية موجهة للأطفال، تجسّد بطولات الجنود المصريين وروح العبور في حرب أكتوبر، بأسلوب مبسّط يجمع بين الترفيه والتوعية، ويغرس قيم الشجاعة، والانتماء، وحب الوطن في نفوس الأجيال الجديدة.',
+    descriptionEn: 'A patriotic play for children that embodies the heroism of Egyptian soldiers and the spirit of crossing in the October War, in a simplified style that combines entertainment and awareness, instilling values of courage, belonging, and love of country in the hearts of new generations.',
+    image: crossingVictoryImg,
+    videoPath: '/videos/crossing-victory.mp4',
+  },
+  'khaled-galal-tribute': {
+    id: 'khaled-galal-tribute',
+    title: 'حفل تكريم المخرج خالد جلال',
+    titleEn: 'Director Khaled Galal Tribute',
+    description: 'حفل تكريم المخرج القدير خالد جلال، عضو مجلس الشيوخ المصري، خلال الاحتفالية الفنية الكبرى التي نظمها قطاع المسرح برئاسة المخرج هشام عطوة على خشبة المسرح القومي تقديرًا لمسيرته الإبداعية وإسهاماته المؤثرة في تطوير المشهد المسرحي المصري.',
+    descriptionEn: 'Tribute ceremony for distinguished director Khaled Galal, member of the Egyptian Senate, during the grand artistic celebration organized by the Theater Sector in appreciation of his creative career and influential contributions to developing the Egyptian theatrical scene.',
     image: kingLearImg,
     videoPath: '/videos/king-lear.mp4',
-  },
-  'play-5': {
-    id: 'play-5',
-    title: 'مسرحية ٥',
-    titleEn: 'Play 5',
-    description: 'دراما مؤثرة تجسد الصراع الأزلي بين الخير والشر في قالب مسرحي آسر.',
-    descriptionEn: 'A touching drama embodying the eternal struggle between good and evil in a captivating theatrical format.',
-    image: carmenImg,
-    videoPath: '/videos/carmen.mp4',
-  },
-  'play-6': {
-    id: 'play-6',
-    title: 'مسرحية ٦',
-    titleEn: 'Play 6',
-    description: 'رحلة درامية في عوالم الحب والفقدان والأمل، تأسر القلوب وتثير العقول.',
-    descriptionEn: 'A dramatic journey through the worlds of love, loss, and hope that captivates hearts and stimulates minds.',
-    image: womenPrisonImg,
-    videoPath: '/videos/women-prison.mp4',
   },
 };
 
@@ -119,7 +120,7 @@ const PlayDetail: React.FC = () => {
             <img
               src={play.image}
               alt={language === 'ar' ? play.title : play.titleEn}
-              className="w-full h-[50vh] md:h-[70vh] object-cover"
+              className="w-full h-[50vh] md:h-[70vh] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
             
