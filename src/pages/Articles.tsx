@@ -3,11 +3,17 @@ import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Import images
+import hawadeetImg from '@/assets/articles/hawadeet.jpg';
+import carmenImg from '@/assets/articles/carmen.jpg';
+import kingLearImg from '@/assets/articles/king-lear.jpg';
+
 const articlesData = [
   {
     id: 'hawadeet',
     title: 'حواديت',
     titleEn: 'Hawadeet',
+    image: hawadeetImg,
     content: `من أبرز الكتابات النقدية عن عرض (حواديت) للمخرج الكبير خالد جلال:
 
 بين أنهار الدموع ودموع الضحك ... قسوة خالد جلال في "حواديت"
@@ -43,6 +49,7 @@ One of the most prominent features of the show is that the heroism was not confi
     id: 'carmen-article',
     title: '«كارمن» تعود مجدداً لخشبة المسرح المصري برؤية حداثية',
     titleEn: 'Carmen Returns to Egyptian Theater with a Modern Vision',
+    image: carmenImg,
     content: `تعود الفتاة الغجرية الإسبانية «كارمن»، بطلة رواية الكاتب الفرنسي بروسبير ميرميه، للظهور مجدداً على خشبة المسرح المصري، ولكن هذه المرة برؤية حداثية.
 
 على مدار 3 أشهر يحتضن مسرح الطليعة بالقاهرة، عرض «كارمن»، الذي لفت أنظار الجمهور وأثار إعجاب النقاد.
@@ -66,6 +73,7 @@ Director Nasser Abdel Moneim confirms that "the play (Carmen) is one of the immo
     id: 'king-lear-article',
     title: '«الملك لير»... العرض المسرحي المصري يعزز حضوره عربياً',
     titleEn: 'King Lear... Egyptian Theater Show Strengthens Its Arab Presence',
+    image: kingLearImg,
     content: `يعزز العرض المسرحي المصري «الملك لير» حضوره عربياً بعد اختياره لافتتاح الدورة الـ26 من مهرجان أيام قرطاج المسرحية في تونس.
 
 وحقق عرض «الملك لير» نجاحاً لافتاً خلال عرضه في أكثر من موسم، وهو عن المسرحية الشهيرة من تأليف ويليام شكسبير، بترجمة فاطمة موسى، وقام بإخراجه للمسرح القومي شادي سرور، من بطولة يحيى الفخراني.
@@ -102,30 +110,44 @@ const Articles: React.FC = () => {
           
           <div className="space-y-12 stagger-children">
             {articlesData.map((article) => (
-              <article key={article.id} className="theater-card rounded-xl overflow-hidden p-6 md:p-8">
-                <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-6">
-                  {language === 'ar' ? article.title : article.titleEn}
-                </h2>
-                
-                <p className="font-cairo text-foreground/80 leading-relaxed whitespace-pre-line mb-6">
-                  {language === 'ar' ? article.content : article.contentEn}
-                </p>
-                
-                {article.links && (
-                  <div className="flex flex-wrap gap-3">
-                    {article.links.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
-                      >
-                        {language === 'ar' ? link.label : link.labelEn}
-                      </a>
-                    ))}
+              <article key={article.id} className="theater-card rounded-xl overflow-hidden">
+                <div className="flex flex-col lg:flex-row">
+                  {/* Image */}
+                  <div className="lg:w-2/5 flex-shrink-0">
+                    <img
+                      src={article.image}
+                      alt={language === 'ar' ? article.title : article.titleEn}
+                      className="w-full h-64 lg:h-full object-cover"
+                    />
                   </div>
-                )}
+                  
+                  {/* Content */}
+                  <div className="lg:w-3/5 p-6 md:p-8">
+                    <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-6">
+                      {language === 'ar' ? article.title : article.titleEn}
+                    </h2>
+                    
+                    <p className="font-cairo text-foreground/80 leading-relaxed whitespace-pre-line mb-6 max-h-80 overflow-y-auto">
+                      {language === 'ar' ? article.content : article.contentEn}
+                    </p>
+                    
+                    {article.links && (
+                      <div className="flex flex-wrap gap-3">
+                        {article.links.map((link, index) => (
+                          <a
+                            key={index}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
+                          >
+                            {language === 'ar' ? link.label : link.labelEn}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </article>
             ))}
           </div>

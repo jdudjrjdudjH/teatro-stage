@@ -10,6 +10,7 @@ import carmenImg from '@/assets/plays/carmen.jpg';
 import womenPrisonImg from '@/assets/plays/women-prison.jpg';
 import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
 import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
+import museumImg from '@/assets/plays/museum.jpg';
 
 const WorldBox: React.FC = () => {
   const { t, language } = useLanguage();
@@ -74,6 +75,16 @@ const WorldBox: React.FC = () => {
         : 'Tribute to distinguished director Khaled Galal for his creative career',
       image: kingLearImg,
       link: '/world-box/khaled-galal-tribute',
+    },
+    {
+      id: 'museum',
+      title: 'متحف رواد الفن',
+      titleEn: 'Art Pioneers Museum',
+      description: language === 'ar'
+        ? 'جولة داخل متحف رواد الفن الذي يوثق تاريخ المسرح المصري'
+        : 'A tour inside the Art Pioneers Museum documenting Egyptian theater history',
+      image: museumImg,
+      link: '/world-box/museum',
     },
   ];
 

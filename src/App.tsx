@@ -13,6 +13,7 @@ import Backstage from "./pages/Backstage";
 import Memory from "./pages/Memory";
 import Interviews from "./pages/Interviews";
 import Articles from "./pages/Articles";
+import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/memory" element={<Memory />} />
             <Route path="/interviews" element={<Interviews />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

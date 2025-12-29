@@ -18,6 +18,7 @@ const Navbar: React.FC = () => {
     { key: 'nav.worldBox', path: '/world-box' },
     { key: 'nav.memory', path: '/memory' },
     { key: 'nav.articles', path: '/articles' },
+    { key: 'nav.aboutUs', path: '/about-us' },
   ];
 
   return (

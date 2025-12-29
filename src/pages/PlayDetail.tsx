@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 
 // Import images
 import kingLearImg from '@/assets/plays/king-lear.jpg';
@@ -10,6 +10,7 @@ import carmenImg from '@/assets/plays/carmen.jpg';
 import womenPrisonImg from '@/assets/plays/women-prison.jpg';
 import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
 import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
+import museumImg from '@/assets/plays/museum.jpg';
 
 interface PlayData {
   id: string;
@@ -19,6 +20,11 @@ interface PlayData {
   descriptionEn: string;
   image: string;
   videoPath: string;
+  sceneLabel?: string;
+  sceneLabelEn?: string;
+  watchMoreLabel?: string;
+  watchMoreLabelEn?: string;
+  watchMoreLink?: string;
 }
 
 const playsData: Record<string, PlayData> = {
@@ -30,6 +36,9 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: 'A timeless Shakespearean tragedy about the struggle for power, pride, and betrayal. The king decides to divide his kingdom among his daughters, leading him to downfall through misjudgment, revealing that true love is measured not by words but by loyalty and actions.',
     image: kingLearImg,
     videoPath: '/videos/king-lear.mp4',
+    watchMoreLabel: 'لمشاهدة باقي أحداث المسرحية',
+    watchMoreLabelEn: 'Watch the rest of the play',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1U3x6z5n-cA1lPMRAWW6KQad3anUcl68G',
   },
   'carmen': {
     id: 'carmen',
@@ -39,6 +48,9 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: 'The play Carmen tells the story of a free-spirited girl named Carmen who falls in love with soldier Don José, but his intense jealousy leads them to a tragic end, highlighting the conflict between love and freedom in a moving dramatic framework.',
     image: carmenImg,
     videoPath: '/videos/carmen.mp4',
+    watchMoreLabel: 'لمشاهدة باقي أجزاء المسرحية',
+    watchMoreLabelEn: 'Watch the rest of the play',
+    watchMoreLink: 'https://drive.google.com/drive/folders/10bBy6mkS9K_dSNURTWBjMWcFud-m5QpC',
   },
   'women-prison': {
     id: 'women-prison',
@@ -48,6 +60,9 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: "A bold social play that reveals the world of women's prison, shedding light on human stories of women led behind bars by harsh circumstances and social injustice, in a deep exploration of oppression, justice, and the search for salvation.",
     image: womenPrisonImg,
     videoPath: '/videos/women-prison.mp4',
+    watchMoreLabel: 'لمشاهدة باقي أجزاء المسرحية',
+    watchMoreLabelEn: 'Watch the rest of the play',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1uNNcIgLRtRwjCbmGjCJby_TV5BQ9jW_H',
   },
   'that-red-cloak': {
     id: 'that-red-cloak',
@@ -57,6 +72,9 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: 'The play "That... and the Red Cloak" recalls the famous fairy tale of the little girl in the red cloak, known as "Little Red Riding Hood." In the new theatrical performance, the team transports the fairy tale to a contemporary space, where the young heroine faces other wolves in the "social media" forest.',
     image: thatRedCloakImg,
     videoPath: '/videos/that-red-cloak.mp4',
+    watchMoreLabel: 'لمشاهدة باقي أجزاء المسرحية',
+    watchMoreLabelEn: 'Watch the rest of the play',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1XzewURdXPHvQsb0BQce5VYnvQt3_Uj5i',
   },
   'crossing-victory': {
     id: 'crossing-victory',
@@ -66,6 +84,9 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: 'A patriotic play for children that embodies the heroism of Egyptian soldiers and the spirit of crossing in the October War, in a simplified style that combines entertainment and awareness, instilling values of courage, belonging, and love of country in the hearts of new generations.',
     image: crossingVictoryImg,
     videoPath: '/videos/crossing-victory.mp4',
+    watchMoreLabel: 'لمشاهدة باقي أجزاء المسرحية',
+    watchMoreLabelEn: 'Watch the rest of the play',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1AAhmcss1iHiRswaiA8KfFtXjSQ0a1XEP',
   },
   'khaled-galal-tribute': {
     id: 'khaled-galal-tribute',
@@ -75,6 +96,25 @@ const playsData: Record<string, PlayData> = {
     descriptionEn: 'Tribute ceremony for distinguished director Khaled Galal, member of the Egyptian Senate, during the grand artistic celebration organized by the Theater Sector in appreciation of his creative career and influential contributions to developing the Egyptian theatrical scene.',
     image: kingLearImg,
     videoPath: '/videos/king-lear.mp4',
+    sceneLabel: 'مشهدٌ من قلبِ الندوة',
+    sceneLabelEn: 'A Scene from the Symposium',
+    watchMoreLabel: 'لمشاهدة باقي أجزاء الندوة',
+    watchMoreLabelEn: 'Watch the rest of the symposium',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1OaguM1lOJcVw6Gox1DjWZBDX4YhWxKP-',
+  },
+  'museum': {
+    id: 'museum',
+    title: 'متحف رواد الفن',
+    titleEn: 'Art Pioneers Museum',
+    description: 'جولة داخل متحف رواد الفن الذي يوثق تاريخ المسرح المصري ويحتفي برواده الأوائل من خلال مجموعة فريدة من المقتنيات والوثائق التاريخية والصور النادرة التي تحكي قصة الفن المسرحي في مصر.',
+    descriptionEn: 'A tour inside the Art Pioneers Museum, which documents the history of Egyptian theater and celebrates its early pioneers through a unique collection of artifacts, historical documents, and rare photos that tell the story of theatrical art in Egypt.',
+    image: museumImg,
+    videoPath: '/videos/museum.mp4',
+    sceneLabel: 'لقطات من المتحف',
+    sceneLabelEn: 'Scenes from the Museum',
+    watchMoreLabel: 'لمشاهدة باقي المتحف',
+    watchMoreLabelEn: 'Watch the rest of the museum',
+    watchMoreLink: 'https://drive.google.com/drive/folders/1ONqgblBCpKfpGN9vgOq3kbsr-LZLtzhv',
   },
 };
 
@@ -101,6 +141,10 @@ const PlayDetail: React.FC = () => {
       </Layout>
     );
   }
+
+  const sceneTitle = play.sceneLabel 
+    ? (language === 'ar' ? play.sceneLabel : play.sceneLabelEn)
+    : t('common.sceneFromPlay');
 
   return (
     <Layout>
@@ -140,10 +184,10 @@ const PlayDetail: React.FC = () => {
             {/* Video Section */}
             <div className="theater-card rounded-xl overflow-hidden p-6 md:p-8">
               <h2 className="font-amiri text-2xl text-gold mb-6 text-center">
-                {t('common.sceneFromPlay')}
+                {sceneTitle}
               </h2>
               
-              <div className="relative aspect-video rounded-lg overflow-hidden gold-border">
+              <div className="relative aspect-video rounded-lg overflow-hidden gold-border mb-6">
                 <video
                   controls
                   className="w-full h-full object-cover"
@@ -156,6 +200,24 @@ const PlayDetail: React.FC = () => {
                   }
                 </video>
               </div>
+
+              {/* Watch More Link */}
+              {play.watchMoreLink && (
+                <div className="text-center">
+                  <p className="font-cairo text-foreground/80 mb-4">
+                    {language === 'ar' ? play.watchMoreLabel : play.watchMoreLabelEn}
+                  </p>
+                  <a
+                    href={play.watchMoreLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border-2 border-gold text-gold hover:bg-gold/10 transition-all font-cairo text-lg"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                    {language === 'ar' ? 'شاهد الآن' : 'Watch Now'}
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
