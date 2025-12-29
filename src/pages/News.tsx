@@ -8,6 +8,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import kingLearImg from '@/assets/plays/king-lear.jpg';
 import carmenImg from '@/assets/plays/carmen.jpg';
 import womenPrisonImg from '@/assets/plays/women-prison.jpg';
+import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
+import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
 
 interface NewsArticle {
   id: string;
@@ -107,7 +109,7 @@ The play begins with a modern spirit of a girl trying to earn money through "soc
 In the new theatrical performance hosted by Cairo Puppet Theater, written by Walid Kamal and directed by Nadia Al-Sheikh, the team transports the fairy tale to a contemporary space, where the little heroine faces other wolves in the "social media" jungle.
 
 The heroine "That" never leaves her mobile phone throughout the show. She appears in a "live" broadcast addressing her followers on "TikTok" in her red dress, which she believes will make her distinctive and "unique", so she remains attached to wearing it throughout her live broadcast, intensifying its pace hoping to attract a million followers.`,
-    image: carmenImg,
+    image: thatRedCloakImg,
     links: [
       { url: 'https://drive.google.com/file/d/1tdaefxgv0fEMd-Km2H1HqIb2kOOAjfvB/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1t9m_PjEKUnmc6nZEPh2SLRaRC2qxoFmM/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
@@ -133,7 +135,7 @@ The show continues to be presented on the stage of the National Children's Theat
 "Crossing and Victory" highlights October victories, presenting the 1973 war experience until moments of victory. The national spectacular play takes place from the June setback to the crossing.
 
 The show stars Hany Kamal, Mounir Makram, Abdel Salam Al-Dahshan, Adel Shaaban, and Iman Salem, child Ahmed Essam, voice performance by Helmy Fouda, and the show is written and directed by Mohamed Al-Khouly.`,
-    image: carmenImg,
+    image: crossingVictoryImg,
     links: [
       { url: 'https://drive.google.com/file/d/165n0OJiu5jR3nE91DGcE-ovA5bJbM2nn/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
       { url: 'https://drive.google.com/file/d/1Rh173gQ9zd0qKxCLAKKIYbjRU6clQlLY/view?usp=drivesdk', label: 'شاهد الآن', labelEn: 'Watch Now' },
