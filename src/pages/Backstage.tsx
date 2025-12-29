@@ -31,6 +31,14 @@ const backstageItems: BackstageItem[] = [
     descriptionEn: 'Artist Tarek El-Desouki reveals the behind-the-scenes preparations for "King Lear" and the team\'s efforts for the work\'s success',
     videoUrl: 'https://youtu.be/0qcA0JbDND0?si=sYiwe05CEsNEg9ij',
   },
+  {
+    id: '3',
+    title: 'ريم أحمد تكشف أسرار وكواليس مسرحية كارمن',
+    titleEn: 'Reem Ahmed Reveals Secrets and Behind-the-Scenes of Carmen',
+    description: 'الفنانة ريم أحمد تتحدث عن أسرار وكواليس مسرحية كارمن وتجربتها في العمل',
+    descriptionEn: 'Artist Reem Ahmed talks about the secrets and behind-the-scenes of Carmen and her experience in the work',
+    videoUrl: 'https://youtu.be/OUKUqAk10gY?si=vFJP9cpqFWFAryzu',
+  },
 ];
 
 const Backstage: React.FC = () => {

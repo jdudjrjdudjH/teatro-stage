@@ -4,6 +4,16 @@ import SectionTitle from '@/components/SectionTitle';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { X } from 'lucide-react';
 
+// Import legend images
+import samirGhanemImg from '@/assets/legends/samir-ghanem.jpg';
+import mohamedSobhiImg from '@/assets/legends/mohamed-sobhi.jpg';
+import adelImamImg from '@/assets/legends/adel-imam.jpg';
+import fatmaRushdiImg from '@/assets/legends/fatma-rushdi.jpg';
+import shwikarImg from '@/assets/legends/shwikar.jpg';
+import fouadMohandesImg from '@/assets/legends/fouad-elmohandes.jpg';
+import youssefWahbyImg from '@/assets/legends/youssef-wahby.jpg';
+import aliKassarImg from '@/assets/legends/ali-kassar.jpg';
+
 interface LegendData {
   id: string;
   name: string;
@@ -12,6 +22,7 @@ interface LegendData {
   titleEn: string;
   content: string;
   contentEn: string;
+  image?: string;
 }
 
 const legendsData: LegendData[] = [
@@ -21,6 +32,7 @@ const legendsData: LegendData[] = [
     nameEn: 'Samir Ghanem',
     title: 'نجم الكوميديا المصرية الجماهيرية',
     titleEn: 'Star of Egyptian Popular Comedy',
+    image: samirGhanemImg,
     content: `يُعد سمير غانم واحدًا من أبرز نجوم الكوميديا في مصر، ولقّب بـ «أيقونة الكوميديا الجماهيرية». اشتهر بقدرته الفائقة على إضحاك الجمهور بأسلوب مرح وساخر.
 
 النشأة والبدايات: وُلد سمير غانم عام 1937 في طنطا، وبدأ مشواره الفني في أوائل الخمسينيات من خلال المسرح الكوميدي.
@@ -42,6 +54,7 @@ Most Famous Works: School of Troublemakers, Hello Doctor, and duo and trio comed
     nameEn: 'Mohamed Sobhi',
     title: 'رائد المسرح السياسي والفكاهي',
     titleEn: 'Pioneer of Political and Comedic Theater',
+    image: mohamedSobhiImg,
     content: `يُعد محمد صبحي أحد أبرز نجوم المسرح المصري الحديث، ولقّب بـ «المسرحي السياسي الفكاهي» بفضل أعماله التي تمزج بين الكوميديا والرسائل الاجتماعية والسياسية.
 
 وُلد محمد صبحي عام 1948 في القاهرة، وأسس فرقة المسرح الحديث، وقدم مسرحيات تناولت القضايا الاجتماعية والسياسية ومشاكل الفساد.
@@ -59,6 +72,7 @@ Most Famous Works: Witness Who Saw Nothing, Jawhara, The Kids Have Grown Up.`,
     nameEn: 'Adel Imam',
     title: 'الزعيم وملك الكوميديا السياسية',
     titleEn: 'The Leader and King of Political Comedy',
+    image: adelImamImg,
     content: `يُعد عادل إمام أحد أعظم نجوم المسرح والسينما المصرية، ولقّب بـ «الزعيم» بفضل تأثيره الكبير وجماهيريته الضخمة.
 
 وُلد عادل إمام عام 1940 في القاهرة، وتميز بـ الكوميديا السياسية والاجتماعية التي تناولت قضايا المجتمع بأسلوب ساخر.
@@ -76,6 +90,7 @@ Most Famous Works: The Working Boy, School of Troublemakers, The Leader, Witness
     nameEn: 'Fatma Rushdi',
     title: 'سارة برنار الشرق',
     titleEn: 'Sarah Bernhardt of the East',
+    image: fatmaRushdiImg,
     content: `تُعد فاطمة رشدي واحدة من أهم وأبرز نجمات المسرح المصري، وأول امرأة تفرض اسمها بقوة على خشبة المسرح. لُقّبت بـ «سارة برنار الشرق».
 
 وُلدت فاطمة رشدي عام 1908، وبدأت علاقتها بالمسرح في سن صغيرة مع فرقة عزيز عيد.
@@ -93,6 +108,7 @@ Her name was associated with serious theater and she presented international wor
     nameEn: 'Shwikar',
     title: 'نجمة الكوميديا والدراما المسرحية',
     titleEn: 'Star of Comedy and Theatrical Drama',
+    image: shwikarImg,
     content: `تُعد شويكار واحدة من أبرز نجمات المسرح المصري، ولقّبت بـ «نجمة الكوميديا الشعبية» بفضل حضورها المتميز في المسرح والسينما.
 
 وُلدت شويكار عام 1938 في القاهرة، وجمعت في أعمالها بين الكوميديا والدراما.
@@ -110,6 +126,7 @@ Most Famous Works: School of Troublemakers (with Adel Imam), Hello Doctor (with 
     nameEn: 'Fouad El-Mohandes',
     title: 'أيقونة الكوميديا المصرية',
     titleEn: 'Icon of Egyptian Comedy',
+    image: fouadMohandesImg,
     content: `يُعد فؤاد المهندس واحدًا من أعظم نجوم الكوميديا في مصر، ولقّب بـ «ملك الكوميديا المسرحية والسينمائية».
 
 وُلد فؤاد المهندس عام 1924 في القاهرة، وقدّم كوميديا اجتماعية هادفة تستخدم المواقف اليومية والنقد اللطيف.
@@ -127,6 +144,7 @@ Most Famous Works: School of Troublemakers, Hello Doctor, Raya and Sakina.`,
     nameEn: 'Youssef Wahbi',
     title: 'عميد المسرح العربي',
     titleEn: 'Dean of Arab Theater',
+    image: youssefWahbyImg,
     content: `يُعد يوسف وهبي واحدًا من أعظم أعمدة المسرح المصري والعربي، ولقّب بـ «عميد المسرح العربي».
 
 وُلد يوسف وهبي عام 1898 في القاهرة، وأسس فرقة رمسيس المسرحية التي قدّمت الكلاسيكيات العالمية.
@@ -144,6 +162,7 @@ Most Famous Works: The Fall of Cleopatra, A Man in His Palace, King Lear, Hamlet
     nameEn: 'Ali El-Kassar',
     title: 'ملك الكوميديا الشعبية',
     titleEn: 'King of Popular Comedy',
+    image: aliKassarImg,
     content: `يُعد علي الكسار أحد أهم نجوم المسرح الكوميدي في مصر، ولقّب بـ «ملك الكوميديا الشعبية».
 
 وُلد علي الكسار عام 1887 في القاهرة، واشتهر بتقديم الكوميديا الشعبية التي تعكس حياة الناس اليومية.
@@ -225,8 +244,16 @@ const Memory: React.FC = () => {
                 onClick={() => setSelectedLegend(legend)}
                 className="theater-card rounded-xl p-6 text-center spotlight cursor-pointer hover:scale-105 transition-transform text-start"
               >
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-gold/20 to-primary/20 flex items-center justify-center">
-                  <span className="font-amiri text-3xl text-gold">🎭</span>
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-br from-gold/20 to-primary/20 flex items-center justify-center">
+                  {legend.image ? (
+                    <img 
+                      src={legend.image} 
+                      alt={language === 'ar' ? legend.name : legend.nameEn}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <span className="font-amiri text-3xl text-gold">🎭</span>
+                  )}
                 </div>
                 <h3 className="font-amiri text-xl text-gold mb-2 text-center">
                   {language === 'ar' ? legend.name : legend.nameEn}
@@ -267,8 +294,16 @@ const Memory: React.FC = () => {
               </button>
             </div>
             
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold/30 to-primary/30 flex items-center justify-center">
-              <span className="font-amiri text-5xl text-gold">🎭</span>
+            <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-br from-gold/30 to-primary/30 flex items-center justify-center">
+              {selectedLegend.image ? (
+                <img 
+                  src={selectedLegend.image} 
+                  alt={language === 'ar' ? selectedLegend.name : selectedLegend.nameEn}
+                  className="w-full h-full object-cover object-top"
+                />
+              ) : (
+                <span className="font-amiri text-5xl text-gold">🎭</span>
+              )}
             </div>
             
             <p className="font-cairo text-foreground/90 leading-relaxed whitespace-pre-line">

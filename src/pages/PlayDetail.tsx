@@ -11,6 +11,7 @@ import womenPrisonImg from '@/assets/plays/women-prison.jpg';
 import thatRedCloakImg from '@/assets/plays/that-red-cloak.jpg';
 import crossingVictoryImg from '@/assets/plays/crossing-victory.jpg';
 import museumImg from '@/assets/plays/museum.jpg';
+import khaledGalalImg from '@/assets/festivals/khaled-galal.jpg';
 
 interface PlayData {
   id: string;
@@ -94,8 +95,8 @@ const playsData: Record<string, PlayData> = {
     titleEn: 'Director Khaled Galal Tribute',
     description: 'حفل تكريم المخرج القدير خالد جلال، عضو مجلس الشيوخ المصري، خلال الاحتفالية الفنية الكبرى التي نظمها قطاع المسرح برئاسة المخرج هشام عطوة على خشبة المسرح القومي تقديرًا لمسيرته الإبداعية وإسهاماته المؤثرة في تطوير المشهد المسرحي المصري.',
     descriptionEn: 'Tribute ceremony for distinguished director Khaled Galal, member of the Egyptian Senate, during the grand artistic celebration organized by the Theater Sector in appreciation of his creative career and influential contributions to developing the Egyptian theatrical scene.',
-    image: kingLearImg,
-    videoPath: '/videos/king-lear.mp4',
+    image: khaledGalalImg,
+    videoPath: '/videos/khaled-tribute.mp4',
     sceneLabel: 'مشهدٌ من قلبِ الندوة',
     sceneLabelEn: 'A Scene from the Symposium',
     watchMoreLabel: 'لمشاهدة باقي أجزاء الندوة',

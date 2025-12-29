@@ -20,6 +20,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.worldBox': 'صندوق الدنيا',
     'nav.memory': 'ذاكرة المسرح',
     'nav.articles': 'نقد ومقالات',
+    'nav.aboutUs': 'من نحن',
     
     // Hero
     'hero.welcome': 'مرحباً بكم في تياترو',
@@ -74,6 +75,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.worldBox': 'World Box',
     'nav.memory': 'Theater Memory',
     'nav.articles': 'Criticism & Articles',
+    'nav.aboutUs': 'About Us',
     
     // Hero
     'hero.welcome': 'Welcome to Teatro',
