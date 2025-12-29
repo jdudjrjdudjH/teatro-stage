@@ -3,12 +3,19 @@ import Layout from '@/components/Layout';
 import SectionTitle from '@/components/SectionTitle';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+// Import images
+import mazenImg from '@/assets/festivals/mazen.jpg';
+import carmenImg from '@/assets/festivals/carmen.jpg';
+import khaledGalalImg from '@/assets/festivals/khaled-galal.jpg';
+import sharmImg from '@/assets/festivals/sharm.jpg';
+
 interface FestivalEvent {
   id: string;
   title: string;
   titleEn: string;
   content: string;
   contentEn: string;
+  image?: string;
   links: { url: string; label: string; labelEn: string }[];
 }
 
@@ -17,6 +24,7 @@ const festivalEvents: FestivalEvent[] = [
     id: '1',
     title: 'مازن الغرباوى: "كتاب المخرجين الشباب مساهمة فى توثيق المسرح المصرى"',
     titleEn: 'Mazen Al-Gharbawi: "The Book of Young Directors is a Contribution to Documenting Egyptian Theater"',
+    image: mazenImg,
     content: `بدأت منذ قليل، ندوة الاحتفاء بكتاب "رؤى وتجارب ووهج آسر مسرح الآلفية الثالثة" للناقد باسم صادق، والذي أقامها مهرجان شرم الشيخ الدولي للمسرح الشبابي، برئاسة المخرج مازن الغرباوي، وأدار الندوة الناقد والمخرج جمال عبد الناصر، وبمشاركة الفنان ميدو عادل.
 
 واستهل المخرج مازن الغرباوي حديثه قائلاً: "أتقدم بخالص الشكر لرئيس المركز القومي للمسرح. لقد تصدت إدارة المهرجان لتنظيم هذا الحدث احتفالًا بمرور عشر سنوات على المهرجان، ليكون هناك توثيق لبعض المخرجين من مخرجي الألفية الجديدة، وفق رؤية الكاتب والناقد باسم صادق."
@@ -38,6 +46,7 @@ The Sharm El-Sheikh International Youth Theater Festival is held under the patro
     id: '2',
     title: '"كارمن يمثل مصر في المسابقة الرسمية لمهرجان المسرح العربي 2026"',
     titleEn: '"Carmen Represents Egypt in the Official Competition of the Arab Theater Festival 2026"',
+    image: carmenImg,
     content: `تحت رعاية الدكتور أحمد فؤاد هنو وزير الثقافة، وبإشراف المخرج هشام عطوة رئيس قطاع المسرح، يشارك العرض المسرحي "كارمن" إخراج ناصر عبد المنعم إنتاج فرقة مسرح الطليعة بقيادة المخرج سامح بسيوني، في المسابقة الرسمية لمهرجان المسرح العربي الذي تنظمه الهيئة العربية للمسرح بالقاهرة خلال الفترة من 10 إلي 16 يناير 2026.
 
 وأعلنت لجنة اختيار العروض، برئاسة الدكتور يوسف عايدابي من دولة السودان، عن اختيار 15 عرضًا مسرحيًا فقط من مختلف الدول العربية للتنافس على جائزة صاحب السمو الشيخ الدكتور سلطان محمد القاسمي لأفضل عمل مسرحي عربي.
@@ -57,6 +66,7 @@ The selection committee, headed by Dr. Youssef Aidabi from Sudan, announced the 
     id: '3',
     title: 'وزير الثقافة يُكرّم المخرج القدير خالد جلال في احتفالية كبرى بالمسرح القومي',
     titleEn: 'Minister of Culture Honors Distinguished Director Khaled Jalal at a Grand Ceremony at the National Theater',
+    image: khaledGalalImg,
     content: `كرّم الدكتور أحمد فؤاد هَنو، وزير الثقافة، المخرج القدير خالد جلال، عضو مجلس الشيوخ المصري، خلال الاحتفالية الفنية الكبرى التي نظمها قطاع المسرح برئاسة المخرج هشام عطوة على خشبة المسرح القومي تقديرًا لمسيرته الإبداعية وإسهاماته المؤثرة في تطوير المشهد المسرحي المصري.
 
 وأكد وزير الثقافة خلال كلمته أن الاحتفاء بالمبدعين يمثل تأكيدًا لقيمة الفن المصري العظيم، مشيرًا إلى أن تكريم خالد جلال هو تكريم لتجربة فنية وفكرية أثرت الوجدان وأسهمت في تعزيز قوة الفن المصري في المحافل المختلفة.
@@ -102,6 +112,7 @@ https://forms.gle/bdGrjaoWdNasToVu8`,
     id: '5',
     title: 'انطلاق الدورة العاشرة من مهرجان شرم الشيخ الدولي للمسرح الشبابي',
     titleEn: 'Launch of the 10th Edition of Sharm El-Sheikh International Youth Theater Festival',
+    image: sharmImg,
     content: `تنطلق الثلاثاء، 25 نوفمبر، فعاليات الدورة العاشرة من مهرجان شرم الشيخ الدولي للمسرح الشبابي، برئاسة المخرج مازن الغرباوي والمدير التنفيذي د. إنجي البستاوي ورئيس اللجنة العليا المنتج هشام سليمان.
 
 يعد المهرجان أحد المشاريع التي شاركت في تأسيسها سيدة المسرح العربي الراحلة سميحة أيوب والتي تحمل هذا العام اسم النجمة المصرية إلهام شاهين احتفاء بمسيرتها الفنية ودعمها المستمر للمسرح والفنون.
@@ -138,29 +149,70 @@ const Festivals: React.FC = () => {
           
           <div className="space-y-12 stagger-children">
             {festivalEvents.map((event) => (
-              <article key={event.id} className="theater-card rounded-xl overflow-hidden p-6 md:p-8">
-                <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-4">
-                  {language === 'ar' ? event.title : event.titleEn}
-                </h2>
-                
-                <p className="font-cairo text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
-                  {language === 'ar' ? event.content : event.contentEn}
-                </p>
-                
-                {/* Watch Buttons */}
-                <div className="flex flex-wrap gap-3">
-                  {event.links.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
-                    >
-                      {language === 'ar' ? link.label : link.labelEn}
-                    </a>
-                  ))}
-                </div>
+              <article key={event.id} className="theater-card rounded-xl overflow-hidden">
+                {event.image ? (
+                  <div className="flex flex-col lg:flex-row">
+                    {/* Image */}
+                    <div className="lg:w-2/5 flex-shrink-0">
+                      <img
+                        src={event.image}
+                        alt={language === 'ar' ? event.title : event.titleEn}
+                        className="w-full h-64 lg:h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="lg:w-3/5 p-6 md:p-8">
+                      <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-4">
+                        {language === 'ar' ? event.title : event.titleEn}
+                      </h2>
+                      
+                      <p className="font-cairo text-foreground/80 leading-relaxed mb-6 whitespace-pre-line max-h-60 overflow-y-auto">
+                        {language === 'ar' ? event.content : event.contentEn}
+                      </p>
+                      
+                      {/* Watch Buttons */}
+                      <div className="flex flex-wrap gap-3">
+                        {event.links.map((link, index) => (
+                          <a
+                            key={index}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
+                          >
+                            {language === 'ar' ? link.label : link.labelEn}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-6 md:p-8">
+                    <h2 className="font-amiri text-2xl md:text-3xl text-gold mb-4">
+                      {language === 'ar' ? event.title : event.titleEn}
+                    </h2>
+                    
+                    <p className="font-cairo text-foreground/80 leading-relaxed mb-6 whitespace-pre-line">
+                      {language === 'ar' ? event.content : event.contentEn}
+                    </p>
+                    
+                    {/* Watch Buttons */}
+                    <div className="flex flex-wrap gap-3">
+                      {event.links.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gold/50 text-gold hover:bg-gold/10 transition-all font-cairo"
+                        >
+                          {language === 'ar' ? link.label : link.labelEn}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </article>
             ))}
           </div>
